@@ -3,24 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zachary & Abigayle — July 11, 2026</title>
+  <title>Abigayle + Zachary — 7.11.26</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --sand: #f5e6d3;
-      --warm-white: #fdf8f3;
-      --sunset-orange: #e8734a;
-      --sunset-pink: #d4627a;
-      --sunset-gold: #f0a04b;
-      --deep-coral: #c0392b;
-      --ocean-dark: #1a2a3a;
-      --ocean-mid: #2c4a5e;
-      --ocean-light: #5a8fa8;
-      --text-dark: #2c2c2c;
-      --text-light: #fdf8f3;
+      --deep: #1b2a2f;
+      --deep-mid: #243538;
+      --ocean: #2f4f5a;
+      --teal: #3d7a8a;
+      --sand: #e8ddd0;
+      --sand-light: #f2ece4;
+      --cream: #faf7f3;
+      --gold: #c9a96e;
+      --gold-soft: rgba(201, 169, 110, 0.15);
+      --text-light: #f2ece4;
+      --text-light-soft: rgba(242, 236, 228, 0.6);
+      --text-dark: #1b2a2f;
+      --text-dark-mid: #4a5c62;
+      --text-dark-soft: #7a8f95;
     }
 
     html { scroll-behavior: smooth; }
@@ -29,226 +32,355 @@
       font-family: 'Lato', sans-serif;
       font-weight: 300;
       color: var(--text-dark);
-      background: var(--warm-white);
+      background: var(--deep);
       overflow-x: hidden;
     }
 
-    /* ── Hero Section ── */
+    /* ═══════════════════════════════════
+       HERO
+       ═══════════════════════════════════ */
     .hero {
       position: relative;
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 3rem 2rem;
+      background:
+        radial-gradient(ellipse at 50% 70%, rgba(61, 122, 138, 0.2) 0%, transparent 60%),
+        linear-gradient(180deg, var(--deep) 0%, #1e3338 40%, #253d42 60%, var(--deep) 100%);
       color: var(--text-light);
       overflow: hidden;
     }
 
-    /* Sunset sky gradient */
+    /* Ambient glow */
     .hero::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        #1a1a3e 0%,
-        #2d2b55 10%,
-        #4a3060 18%,
-        #8b3a62 28%,
-        #c0392b 38%,
-        #e8734a 48%,
-        #f0a04b 58%,
-        #f7c97e 66%,
-        #f5e6d3 74%,
-        #5a8fa8 76%,
-        #3b6d8a 82%,
-        #1a2a3a 100%
-      );
-      z-index: 0;
-    }
-
-    /* Sun */
-    .sun {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, #ffe680 0%, #f0a04b 50%, #e8734a 100%);
-      border-radius: 50%;
-      top: 58%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
-      box-shadow: 0 0 60px 20px rgba(240, 160, 75, 0.5), 0 0 120px 60px rgba(232, 115, 74, 0.2);
-      z-index: 1;
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    /* Ocean shimmer */
-    .ocean {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 26%;
-      background: linear-gradient(180deg, #3b7a9e 0%, #2c5a74 40%, #1a2a3a 100%);
-      z-index: 2;
-    }
-
-    .ocean::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 30%;
-      right: 30%;
-      height: 60%;
-      background: linear-gradient(180deg,
-        rgba(240, 160, 75, 0.4) 0%,
-        rgba(240, 160, 75, 0.15) 40%,
-        transparent 100%);
-      border-radius: 50% 50% 0 0;
-      z-index: 1;
-    }
-
-    /* Wave SVG */
-    .wave {
-      position: absolute;
-      top: -30px;
-      left: 0;
-      width: 100%;
-      z-index: 3;
-    }
-
-    .hero-content {
+    .monogram {
       position: relative;
-      z-index: 10;
-      padding: 2rem;
-    }
-
-    .hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(2.5rem, 7vw, 5rem);
-      letter-spacing: 0.02em;
-      line-height: 1.2;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
-    }
-
-    .hero-content .ampersand {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(1.8rem, 5vw, 3.5rem);
-      display: block;
-      margin: 0.2em 0;
-      color: var(--sunset-gold);
-      text-shadow: 0 2px 15px rgba(0,0,0,0.3);
-    }
-
-    .hero-content .date {
-      font-family: 'Lato', sans-serif;
-      font-weight: 300;
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-top: 1.5rem;
-      text-shadow: 0 1px 10px rgba(0,0,0,0.3);
-    }
-
-    .hero-content .location {
-      font-family: 'Lato', sans-serif;
-      font-weight: 300;
-      font-size: clamp(0.85rem, 2vw, 1.1rem);
-      letter-spacing: 0.15em;
-      margin-top: 0.5rem;
-      opacity: 0.9;
-      text-shadow: 0 1px 10px rgba(0,0,0,0.3);
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      animation: bobble 2s ease-in-out infinite;
-      color: var(--text-light);
-      opacity: 0.7;
-      text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-    }
-
-    @keyframes bobble {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
-
-    /* ── Sections ── */
-    section {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      color: var(--ocean-mid);
+      display: inline-block;
+      height: 160px;
+      width: 180px;
       margin-bottom: 1.5rem;
     }
 
-    section p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #555;
-      max-width: 560px;
-      margin: 0 auto;
+    .monogram span {
+      font-family: 'Playfair Display', serif;
+      font-size: 9.5rem;
+      font-weight: 400;
+      line-height: 1;
+      position: absolute;
+      top: 0;
+      user-select: none;
     }
 
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--sunset-gold), var(--sunset-orange));
-      margin: 0 auto 2rem;
-      border: none;
-    }
-
-    /* ── Livestream Section ── */
-    .livestream {
-      background: linear-gradient(135deg, var(--ocean-dark) 0%, var(--ocean-mid) 100%);
+    .monogram .letter-a {
+      left: 8px;
+      z-index: 2;
       color: var(--text-light);
-      max-width: 100%;
-      padding: 5rem 2rem;
     }
 
-    .livestream .inner {
-      max-width: 720px;
-      margin: 0 auto;
+    .monogram .letter-z {
+      left: 68px;
+      z-index: 1;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--gold);
+    }
+
+    .hero-line {
+      width: 1px;
+      height: 48px;
+      background: var(--gold);
+      margin: 0 auto 2rem;
+      opacity: 0.5;
+    }
+
+    .hero-names {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6em;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+    }
+
+    .hero-names .plus {
+      color: var(--gold);
+      letter-spacing: 0;
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+      color: var(--text-light-soft);
+      margin-top: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(4rem, 10vw, 7rem);
+      letter-spacing: 0.08em;
+      line-height: 1;
+      color: var(--text-light);
+    }
+
+    .hero-date .dot {
+      color: var(--gold);
+    }
+
+    .hero-location {
+      margin-top: 2rem;
+    }
+
+    .hero-location span {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      font-size: 0.85rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--text-light-soft);
+    }
+
+    .hero-location .sep {
+      display: inline-block;
+      margin: 0 1em;
+      color: var(--gold);
+      opacity: 0.5;
+    }
+
+    .scroll-cta {
+      margin-top: 4rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      animation: bobble 2.5s ease-in-out infinite;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .scroll-cta:hover { opacity: 1; }
+
+    .scroll-cta .arrow {
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    @keyframes bobble {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    /* ═══════════════════════════════════
+       COUNTDOWN
+       ═══════════════════════════════════ */
+    .countdown-section {
+      background: var(--sand);
+      padding: 4.5rem 2rem;
       text-align: center;
     }
 
-    .livestream h2 {
-      color: var(--sunset-gold);
+    .section-tag {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--text-dark-soft);
+      margin-bottom: 2rem;
     }
 
-    .livestream .divider {
-      background: linear-gradient(90deg, var(--sunset-gold), var(--sunset-pink));
+    .countdown-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 100px;
+      padding: 0 1.5rem;
+    }
+
+    .countdown-item + .countdown-item {
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .countdown-item .number {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(3rem, 6vw, 4.2rem);
+      color: var(--text-dark);
+      line-height: 1;
+    }
+
+    .countdown-item .label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-dark-soft);
+      margin-top: 0.6rem;
+    }
+
+    /* ═══════════════════════════════════
+       STORY + DETAILS
+       ═══════════════════════════════════ */
+    .story-section {
+      background: var(--cream);
+      padding: 6rem 3rem;
+      text-align: center;
+    }
+
+    .story-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      line-height: 1.3;
+    }
+
+    .story-section > p {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.35rem;
+      line-height: 2;
+      color: var(--text-dark-mid);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .details-row {
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .detail-block {
+      text-align: center;
+    }
+
+    .detail-block h3 {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--text-dark-soft);
+      margin-bottom: 0.8rem;
+    }
+
+    .detail-block p {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: var(--text-dark-mid);
+    }
+
+    .detail-block em {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.2rem;
+      color: var(--text-dark-soft);
+    }
+
+    /* Gold separator between sections */
+    .gold-sep {
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto;
+      border: none;
+      opacity: 0.5;
+    }
+
+    .story-section .gold-sep {
+      margin-bottom: 3rem;
+    }
+
+    /* ═══════════════════════════════════
+       LIVESTREAM
+       ═══════════════════════════════════ */
+    .livestream {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(61, 122, 138, 0.15) 0%, transparent 50%),
+        var(--deep);
+      color: var(--text-light);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .livestream-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .livestream .section-tag {
+      color: var(--gold);
+    }
+
+    .livestream h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
     }
 
     .livestream p {
-      color: rgba(255,255,255,0.85);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.3rem;
+      line-height: 1.9;
+      color: var(--text-light-soft);
+      max-width: 560px;
+      margin: 0 auto;
     }
 
     .stream-container {
       position: relative;
       width: 100%;
-      max-width: 640px;
-      margin: 2.5rem auto 0;
+      margin: 3rem auto 0;
       aspect-ratio: 16 / 9;
-      background: rgba(0,0,0,0.3);
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -260,162 +392,251 @@
       padding: 2rem;
     }
 
-    .stream-placeholder .icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    .stream-placeholder .play-ring {
+      width: 80px;
+      height: 80px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--gold);
+      font-size: 1.5rem;
       opacity: 0.6;
     }
 
     .stream-placeholder p {
-      font-size: 1rem;
-      opacity: 0.7;
+      font-size: 1.1rem;
+      color: var(--text-light-soft);
+      max-width: 320px;
     }
 
-    /* When livestream is active, replace the placeholder with an iframe */
     .stream-container iframe {
       width: 100%;
       height: 100%;
       border: none;
-      border-radius: 12px;
     }
 
-    /* ── Countdown ── */
-    .countdown-row {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .countdown-item {
+    /* ═══════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════ */
+    footer {
+      background: var(--sand);
+      text-align: center;
+      padding: 3.5rem 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 0.6rem;
     }
 
-    .countdown-item .number {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--sunset-orange);
+    footer .foot-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.35em;
+      color: var(--text-dark-mid);
     }
 
-    .countdown-item .label {
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #888;
-      margin-top: 0.25rem;
-    }
-
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 3rem 2rem;
-      background: var(--sand);
+    footer .foot-date {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
       font-size: 0.85rem;
-      color: #999;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.25em;
+      color: var(--text-dark-soft);
+      text-transform: lowercase;
     }
 
-    footer .names {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--ocean-mid);
-      margin-bottom: 0.5rem;
+    /* ═══════════════════════════════════
+       ANIMATIONS
+       ═══════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger > .reveal:nth-child(2) { transition-delay: 0.12s; }
+    .reveal-stagger > .reveal:nth-child(3) { transition-delay: 0.24s; }
+    .reveal-stagger > .reveal:nth-child(4) { transition-delay: 0.36s; }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════ */
+    @media (max-width: 768px) {
+      .monogram {
+        height: 120px;
+        width: 140px;
+      }
+
+      .monogram span {
+        font-size: 7rem;
+      }
+
+      .monogram .letter-z {
+        left: 50px;
+      }
+
+      .story-section {
+        padding: 5rem 2rem;
+      }
+
+      .details-row {
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-names {
+        flex-direction: column;
+        gap: 0.15em;
+      }
+
+      .monogram {
+        height: 90px;
+        width: 110px;
+      }
+
+      .monogram span {
+        font-size: 5.5rem;
+      }
+
+      .monogram .letter-z {
+        left: 40px;
+      }
+
+      .countdown-item {
+        min-width: 70px;
+        padding: 0 0.8rem;
+      }
+
+      .story-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .details-row {
+        flex-direction: column;
+        gap: 2.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── Hero ── -->
+  <!-- ═══ HERO ═══ -->
   <div class="hero">
-    <div class="sun"></div>
-    <div class="hero-content">
-      <h1>
-        Zachary
-        <span class="ampersand">&</span>
-        Abigayle
-      </h1>
-      <div class="date">July 11, 2026</div>
-      <div class="location">Miramar Beach, Florida</div>
+    <div class="monogram">
+      <span class="letter-a">A</span>
+      <span class="letter-z">Z</span>
     </div>
-    <div class="ocean">
-      <svg class="wave" viewBox="0 0 1440 50" preserveAspectRatio="none">
-        <path d="M0,25 C360,50 720,0 1080,25 C1260,37 1380,10 1440,25 L1440,0 L0,0 Z" fill="rgba(59,122,158,0.0)"/>
-        <path d="M0,20 Q360,45 720,20 T1440,20 L1440,50 L0,50 Z" fill="#3b7a9e" opacity="0.5"/>
-        <path d="M0,30 Q360,10 720,30 T1440,30 L1440,50 L0,50 Z" fill="#2c5a74" opacity="0.7"/>
-      </svg>
+    <div class="hero-line"></div>
+    <div class="hero-names">
+      <span>Abigayle</span>
+      <span class="plus">+</span>
+      <span>Zachary</span>
     </div>
-    <a href="#story" class="scroll-hint">&#9661;</a>
+    <div class="hero-sub">are getting married</div>
+    <div class="hero-date">7 <span class="dot">.</span> 11 <span class="dot">.</span> 26</div>
+    <div class="hero-location">
+      <span>Miramar Beach</span>
+      <span class="sep">&middot;</span>
+      <span>Florida</span>
+    </div>
+    <a href="#countdown" class="scroll-cta">
+      <span>Watch with us</span>
+      <span class="arrow">&#9661;</span>
+    </a>
   </div>
 
-  <!-- ── Our Story / Blurb ── -->
-  <section id="story">
-    <h2>Our Story</h2>
-    <hr class="divider">
-    <p>
-      Two hearts, one beautiful journey. We're thrilled to celebrate our love
-      surrounded by sand, sea, and a stunning sunset on Miramar Beach.
-      Whether you're joining us on the shore or watching from afar,
-      we're so grateful to share this day with you.
-    </p>
-    <div class="countdown-row" id="countdown">
-      <div class="countdown-item">
+  <!-- ═══ COUNTDOWN ═══ -->
+  <div class="countdown-section" id="countdown">
+    <div class="section-tag">Until we say I do</div>
+    <div class="countdown-row reveal-stagger">
+      <div class="countdown-item reveal">
         <span class="number" id="cd-days">--</span>
         <span class="label">Days</span>
       </div>
-      <div class="countdown-item">
+      <div class="countdown-item reveal">
         <span class="number" id="cd-hours">--</span>
         <span class="label">Hours</span>
       </div>
-      <div class="countdown-item">
+      <div class="countdown-item reveal">
         <span class="number" id="cd-minutes">--</span>
         <span class="label">Minutes</span>
       </div>
-      <div class="countdown-item">
+      <div class="countdown-item reveal">
         <span class="number" id="cd-seconds">--</span>
         <span class="label">Seconds</span>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ── Livestream ── -->
-  <section class="livestream" id="watch">
-    <div class="inner">
-      <h2>Watch Live</h2>
-      <hr class="divider">
+  <!-- ═══ STORY + DETAILS ═══ -->
+  <div class="story-section">
+    <hr class="gold-sep">
+    <div class="section-tag">Our Story</div>
+    <h2>Two hearts, one journey</h2>
+    <p>
+      We're thrilled to celebrate our love surrounded by sand, sea,
+      and a stunning sunset on Miramar Beach. Thank you for being
+      part of our day — we're so grateful to share this moment
+      with you.
+    </p>
+    <div class="details-row">
+      <div class="detail-block reveal">
+        <h3>Ceremony</h3>
+        <p>Saturday, July 11th, 2026<br>Miramar Beach, Florida</p>
+        <em>in the afternoon</em>
+      </div>
+      <div class="detail-block reveal">
+        <h3>How to Watch</h3>
+        <p>The ceremony will be livestreamed<br>right here on this page</p>
+        <em>stream goes live day-of</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ LIVESTREAM ═══ -->
+  <div class="livestream" id="watch">
+    <div class="livestream-inner">
+      <div class="section-tag">Join Virtually</div>
+      <h2>Watch the Ceremony</h2>
       <p>
-        Can't make it to the beach? Join us virtually! The ceremony will be
-        livestreamed right here on July 11, 2026.
+        We'll be streaming the ceremony live so you can
+        celebrate with us from wherever you are.
       </p>
-      <div class="stream-container">
+      <div class="stream-container reveal">
         <!--
-          ━━━ LIVESTREAM EMBED ━━━
-          Replace the placeholder below with your embed iframe, e.g.:
+          Replace the placeholder below with your embed iframe:
           <iframe src="https://www.youtube.com/embed/LIVE_STREAM_ID" allowfullscreen></iframe>
         -->
         <div class="stream-placeholder">
-          <div class="icon">&#9655;</div>
-          <p>The livestream will appear here on the day of the wedding.</p>
+          <div class="play-ring">&#9655;</div>
+          <p>The livestream will go live on July 11, 2026</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ── Footer ── -->
+  <!-- ═══ FOOTER ═══ -->
   <footer>
-    <div class="names">Z &amp; A</div>
-    <p>July 11, 2026 &middot; Miramar Beach, FL</p>
+    <div class="foot-names">A + Z</div>
+    <div class="foot-date">7.11.26 &middot; miramar beach, florida</div>
   </footer>
 
-  <!-- ── Countdown Script ── -->
+  <!-- ═══ Scripts ═══ -->
   <script>
     (function() {
-      const wedding = new Date('2026-07-11T17:00:00-05:00'); // 5 PM CT
+      var wedding = new Date('2026-07-11T17:00:00-05:00');
       function update() {
-        const now = new Date();
-        const diff = wedding - now;
+        var now = new Date();
+        var diff = wedding - now;
         if (diff <= 0) {
           document.getElementById('cd-days').textContent = '0';
           document.getElementById('cd-hours').textContent = '0';
@@ -423,17 +644,23 @@
           document.getElementById('cd-seconds').textContent = '0';
           return;
         }
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor((diff % 86400000) / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        const s = Math.floor((diff % 60000) / 1000);
-        document.getElementById('cd-days').textContent = d;
-        document.getElementById('cd-hours').textContent = h;
-        document.getElementById('cd-minutes').textContent = m;
-        document.getElementById('cd-seconds').textContent = s;
+        document.getElementById('cd-days').textContent = Math.floor(diff / 86400000);
+        document.getElementById('cd-hours').textContent = Math.floor((diff % 86400000) / 3600000);
+        document.getElementById('cd-minutes').textContent = Math.floor((diff % 3600000) / 60000);
+        document.getElementById('cd-seconds').textContent = Math.floor((diff % 60000) / 1000);
       }
       update();
       setInterval(update, 1000);
+    })();
+
+    (function() {
+      var els = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 });
+      els.forEach(function(el) { observer.observe(el); });
     })();
   </script>
 

@@ -5,40 +5,218 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abigayle + Zachary — 7.11.26</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Playfair+Display:wght@400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --deep: #1b2a2f;
-      --deep-mid: #243538;
-      --ocean: #2f4f5a;
-      --teal: #3d7a8a;
-      --sand: #e8ddd0;
-      --sand-light: #f2ece4;
-      --cream: #faf7f3;
-      --gold: #c9a96e;
-      --gold-soft: rgba(201, 169, 110, 0.15);
-      --text-light: #f2ece4;
-      --text-light-soft: rgba(242, 236, 228, 0.6);
-      --text-dark: #1b2a2f;
-      --text-dark-mid: #4a5c62;
-      --text-dark-soft: #7a8f95;
+      --paper: #faf9f6;
+      --blue-mid: #8ec7d8;
+      --blue: #6bb3c8;
+      --text-primary: #2b2b2b;
+      --text-secondary: #5c5c5c;
+      --text-tertiary: #8a8a8a;
+      --text-light: #b8b8b8;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Lato', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-      color: var(--text-dark);
-      background: var(--deep);
+      color: var(--text-primary);
+      background: var(--paper);
       overflow-x: hidden;
     }
 
-    /* ═══════════════════════════════════
+    /* ══════════════════════════════════════
+       WATERCOLOR
+       Layered blurred blobs + SVG turbulence
+       filter for organic, invitation-style wash.
+       ══════════════════════════════════════ */
+    .wc {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Hero watercolor — organic, layered wash like the invitation.
+       SVG turbulence filter on the container adds organic distortion.
+       Blobs are more saturated with varied blur for texture. */
+    .hero-wc {
+      position: absolute;
+      bottom: -80px;
+      left: -10%;
+      width: 120%;
+      height: 550px;
+      pointer-events: none;
+      z-index: 2;
+      filter: url(#wc-texture);
+    }
+
+    /* 1 — left pool, reaches high */
+    .hero-wc .wc:nth-child(1) {
+      width: 38%;
+      height: 200px;
+      bottom: 90px;
+      left: -2%;
+      background: rgba(95, 188, 208, 0.26);
+      border-radius: 40% 65% 50% 35% / 60% 40% 55% 45%;
+      filter: blur(44px);
+    }
+
+    /* 2 — left-center, bridges into the middle */
+    .hero-wc .wc:nth-child(2) {
+      width: 35%;
+      height: 160px;
+      bottom: 50px;
+      left: 14%;
+      background: rgba(80, 175, 195, 0.26);
+      border-radius: 55% 45% 62% 38% / 48% 55% 42% 58%;
+      filter: blur(38px);
+    }
+
+    /* 3 — center wash, wide to fill the middle */
+    .hero-wc .wc:nth-child(3) {
+      width: 40%;
+      height: 230px;
+      bottom: 55px;
+      left: 25%;
+      background: rgba(110, 195, 215, 0.24);
+      border-radius: 45% 55% 40% 60% / 65% 35% 58% 42%;
+      filter: blur(46px);
+    }
+
+    /* 4 — right-center, overlaps center and right */
+    .hero-wc .wc:nth-child(4) {
+      width: 34%;
+      height: 180px;
+      bottom: 40px;
+      right: 10%;
+      background: rgba(85, 180, 200, 0.25);
+      border-radius: 58% 42% 35% 65% / 45% 60% 40% 55%;
+      filter: blur(40px);
+    }
+
+    /* 5 — far right wash, reaches moderately high */
+    .hero-wc .wc:nth-child(5) {
+      width: 34%;
+      height: 210px;
+      bottom: 65px;
+      right: -3%;
+      background: rgba(100, 190, 210, 0.24);
+      border-radius: 35% 60% 50% 45% / 55% 42% 60% 38%;
+      filter: blur(42px);
+    }
+
+    /* 6 — upper accent, left */
+    .hero-wc .wc:nth-child(6) {
+      width: 20%;
+      height: 110px;
+      bottom: 170px;
+      left: 6%;
+      background: rgba(90, 185, 205, 0.20);
+      border-radius: 65% 35% 50% 50% / 45% 55% 50% 50%;
+      filter: blur(38px);
+    }
+
+    /* 7 — upper bridge, center-right */
+    .hero-wc .wc:nth-child(7) {
+      width: 38%;
+      height: 150px;
+      bottom: 115px;
+      right: 6%;
+      background: rgba(120, 200, 218, 0.18);
+      border-radius: 42% 58% 45% 55% / 60% 40% 55% 45%;
+      filter: blur(46px);
+    }
+
+    /* 8 — lower right accent */
+    .hero-wc .wc:nth-child(8) {
+      width: 20%;
+      height: 100px;
+      bottom: 40px;
+      right: 3%;
+      background: rgba(80, 178, 198, 0.22);
+      border-radius: 50% 50% 40% 60% / 55% 45% 55% 45%;
+      filter: blur(32px);
+    }
+
+    /* Footer watercolor — same organic treatment */
+    .footer-wc {
+      position: absolute;
+      bottom: -150px;
+      left: -10%;
+      width: 120%;
+      height: 450px;
+      pointer-events: none;
+      z-index: 0;
+      filter: url(#wc-texture);
+    }
+
+    .footer-wc .wc:nth-child(1) {
+      width: 40%;
+      height: 210px;
+      bottom: 35px;
+      left: -2%;
+      background: rgba(95, 188, 208, 0.25);
+      border-radius: 42% 62% 55% 40% / 58% 38% 55% 48%;
+      filter: blur(44px);
+    }
+
+    .footer-wc .wc:nth-child(2) {
+      width: 38%;
+      height: 220px;
+      bottom: 30px;
+      left: 15%;
+      background: rgba(82, 180, 200, 0.26);
+      border-radius: 55% 45% 38% 62% / 48% 55% 42% 58%;
+      filter: blur(40px);
+    }
+
+    .footer-wc .wc:nth-child(3) {
+      width: 38%;
+      height: 190px;
+      bottom: 25px;
+      left: 30%;
+      background: rgba(105, 192, 212, 0.24);
+      border-radius: 60% 40% 52% 48% / 42% 60% 45% 55%;
+      filter: blur(44px);
+    }
+
+    .footer-wc .wc:nth-child(4) {
+      width: 38%;
+      height: 215px;
+      bottom: 35px;
+      right: -2%;
+      background: rgba(90, 185, 205, 0.25);
+      border-radius: 38% 62% 45% 55% / 55% 40% 60% 42%;
+      filter: blur(42px);
+    }
+
+    .footer-wc .wc:nth-child(5) {
+      width: 24%;
+      height: 130px;
+      bottom: 115px;
+      left: 8%;
+      background: rgba(105, 192, 212, 0.17);
+      border-radius: 50% 50% 60% 40% / 45% 55% 42% 58%;
+      filter: blur(48px);
+    }
+
+    .footer-wc .wc:nth-child(6) {
+      width: 22%;
+      height: 110px;
+      bottom: 105px;
+      right: 10%;
+      background: rgba(95, 188, 208, 0.17);
+      border-radius: 62% 38% 48% 52% / 50% 45% 55% 50%;
+      filter: blur(46px);
+    }
+
+    /* ══════════════════════════════════════
        HERO
-       ═══════════════════════════════════ */
+       ══════════════════════════════════════ */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -48,368 +226,401 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 3rem 2rem;
-      background:
-        radial-gradient(ellipse at 50% 70%, rgba(61, 122, 138, 0.2) 0%, transparent 60%),
-        linear-gradient(180deg, var(--deep) 0%, #1e3338 40%, #253d42 60%, var(--deep) 100%);
-      color: var(--text-light);
-      overflow: hidden;
+      padding: 4rem 2rem 10rem;
+      background-color: var(--paper);
+      background-image:
+        radial-gradient(ellipse at 20% 25%, rgba(245,240,230,0.5) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(240,235,225,0.4) 0%, transparent 50%);
     }
 
-    /* Ambient glow */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 400px;
-      background: radial-gradient(ellipse, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
-      pointer-events: none;
+    .hero > *:not(.hero-wc) {
+      position: relative;
+      z-index: 1;
     }
 
+    /* Monogram */
     .monogram {
       position: relative;
       display: inline-block;
-      height: 160px;
-      width: 180px;
-      margin-bottom: 1.5rem;
+      width: 165px;
+      height: 145px;
+      margin-bottom: 1.2rem;
     }
 
     .monogram span {
       font-family: 'Playfair Display', serif;
-      font-size: 9.5rem;
-      font-weight: 400;
+      font-weight: 500;
+      font-size: 8.8rem;
       line-height: 1;
       position: absolute;
       top: 0;
       user-select: none;
+      color: var(--text-primary);
     }
 
-    .monogram .letter-a {
-      left: 8px;
-      z-index: 2;
-      color: var(--text-light);
-    }
-
-    .monogram .letter-z {
-      left: 68px;
-      z-index: 1;
-      color: transparent;
-      -webkit-text-stroke: 1.5px var(--gold);
-    }
+    .monogram .letter-a { left: 0; z-index: 2; }
+    .monogram .letter-z { left: 58px; z-index: 1; opacity: 0.82; }
 
     .hero-line {
       width: 1px;
-      height: 48px;
-      background: var(--gold);
+      height: 50px;
+      background: var(--text-primary);
       margin: 0 auto 2rem;
-      opacity: 0.5;
+      opacity: 0.2;
     }
 
     .hero-names {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6em;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 400;
-      font-size: clamp(1.4rem, 3vw, 1.9rem);
-      letter-spacing: 0.4em;
+      gap: 1.8rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-names .name-block {
+      text-align: center;
+    }
+
+    .hero-names .first {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: clamp(0.85rem, 2.2vw, 1.1rem);
+      letter-spacing: 0.5em;
       text-transform: uppercase;
     }
 
+    .hero-names .last {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+      letter-spacing: 0.2em;
+      color: var(--text-tertiary);
+      margin-top: 0.2rem;
+    }
+
     .hero-names .plus {
-      color: var(--gold);
-      letter-spacing: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 200;
+      font-size: clamp(0.85rem, 2.2vw, 1.1rem);
+      letter-spacing: 0.2em;
+      color: var(--text-tertiary);
+      align-self: flex-start;
+      padding-top: 0.1rem;
     }
 
     .hero-sub {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-weight: 300;
-      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
-      color: var(--text-light-soft);
-      margin-top: 0.6rem;
-      margin-bottom: 2.5rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: var(--text-secondary);
+      margin-bottom: 2.8rem;
     }
 
     .hero-date {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(4rem, 10vw, 7rem);
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(3.5rem, 9vw, 5.8rem);
       letter-spacing: 0.08em;
       line-height: 1;
-      color: var(--text-light);
     }
 
     .hero-date .dot {
-      color: var(--gold);
-    }
-
-    .hero-location {
-      margin-top: 2rem;
-    }
-
-    .hero-location span {
-      font-family: 'Lato', sans-serif;
-      font-weight: 400;
-      font-size: 0.85rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--text-light-soft);
-    }
-
-    .hero-location .sep {
       display: inline-block;
-      margin: 0 1em;
-      color: var(--gold);
-      opacity: 0.5;
+      margin: 0 0.12em;
+      color: var(--text-tertiary);
+    }
+
+    .hero-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: var(--text-secondary);
+      margin-top: 1.6rem;
+    }
+
+    .hero-venue { margin-top: 2.5rem; }
+
+    .hero-venue .venue-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 0.72rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-venue .venue-loc {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      color: var(--text-tertiary);
     }
 
     .scroll-cta {
-      margin-top: 4rem;
-      color: var(--gold);
+      margin-top: 3.5rem;
+      color: var(--blue);
       text-decoration: none;
-      font-family: 'Lato', sans-serif;
-      font-size: 0.75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 400;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
       animation: bobble 2.5s ease-in-out infinite;
-      opacity: 0.7;
+      opacity: 0.65;
       transition: opacity 0.3s;
     }
 
     .scroll-cta:hover { opacity: 1; }
-
-    .scroll-cta .arrow {
-      font-size: 1rem;
-      letter-spacing: 0;
-    }
 
     @keyframes bobble {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(5px); }
     }
 
-    /* ═══════════════════════════════════
-       COUNTDOWN
-       ═══════════════════════════════════ */
-    .countdown-section {
-      background: var(--sand);
-      padding: 4.5rem 2rem;
+    /* ══════════════════════════════════════
+       SECTION UTILITIES
+       ══════════════════════════════════════ */
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 0.68rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 1.8rem;
+    }
+
+    .thin-rule {
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--text-light);
+      margin: 0 auto 2rem;
+      border: none;
+      opacity: 0.5;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ══════════════════════════════════════
+       PHOTO + COUNTDOWN — side by side
+       ══════════════════════════════════════ */
+    .duo-section {
+      position: relative;
+      padding: 9rem 0 6rem;
+      background: transparent;
+    }
+
+    /* Gradient overlay that fades the watercolor bleed into the paper */
+    .duo-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(to bottom, transparent, var(--paper) 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .duo-section::after {
+      content: '';
+      position: absolute;
+      top: 200px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--paper);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .duo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .photo-frame {
+      background: #fff;
+      padding: 0.9rem 0.9rem 2.6rem;
+      box-shadow:
+        0 2px 20px rgba(0,0,0,0.05),
+        0 8px 40px rgba(0,0,0,0.03);
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background:
+        linear-gradient(160deg, rgba(200,230,239,0.2) 0%, rgba(232,244,248,0.35) 40%, rgba(184,220,232,0.15) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .photo-placeholder .ph-icon {
+      font-size: 2rem;
+      color: var(--blue-mid);
+      opacity: 0.35;
+    }
+
+    .photo-placeholder .ph-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .photo-frame .frame-names {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-top: 1.4rem;
       text-align: center;
     }
 
-    .section-tag {
-      font-family: 'Lato', sans-serif;
-      font-weight: 400;
-      font-size: 0.75rem;
-      letter-spacing: 0.5em;
-      text-transform: uppercase;
-      color: var(--text-dark-soft);
-      margin-bottom: 2rem;
+    .photo-frame .frame-detail {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--text-tertiary);
+      margin-top: 0.4rem;
+      text-align: center;
     }
 
+    /* Countdown column */
+    .countdown-col { text-align: center; }
+
     .countdown-row {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
     }
 
     .countdown-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-width: 100px;
-      padding: 0 1.5rem;
+      padding: 0 0.8rem;
     }
 
     .countdown-item + .countdown-item {
-      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid rgba(0,0,0,0.07);
     }
 
     .countdown-item .number {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(3rem, 6vw, 4.2rem);
-      color: var(--text-dark);
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      color: var(--text-primary);
       line-height: 1;
     }
 
     .countdown-item .label {
-      font-family: 'Lato', sans-serif;
-      font-size: 0.7rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 400;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--text-dark-soft);
-      margin-top: 0.6rem;
+      color: var(--text-tertiary);
+      margin-top: 0.5rem;
     }
 
-    /* ═══════════════════════════════════
-       STORY + DETAILS
-       ═══════════════════════════════════ */
-    .story-section {
-      background: var(--cream);
-      padding: 6rem 3rem;
-      text-align: center;
+    /* ══════════════════════════════════════
+       LIVESTREAM — info left, video right
+       ══════════════════════════════════════ */
+    .livestream-section {
+      position: relative;
+      padding: 5rem 0;
+      background: var(--paper);
     }
 
-    .story-section h2 {
+    .livestream-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .livestream-info { text-align: left; }
+
+    .livestream-info .section-label { color: var(--blue); }
+
+    .livestream-info h2 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
       font-style: italic;
-      font-size: clamp(2.5rem, 5vw, 3.8rem);
-      color: var(--text-dark);
-      margin-bottom: 2rem;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--text-primary);
+      margin-bottom: 1rem;
       line-height: 1.3;
     }
 
-    .story-section > p {
+    .livestream-info p {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
-      font-size: 1.35rem;
-      line-height: 2;
-      color: var(--text-dark-mid);
-      max-width: 580px;
-      margin: 0 auto;
-    }
-
-    .details-row {
-      display: flex;
-      justify-content: center;
-      gap: 5rem;
-      margin-top: 4rem;
-      flex-wrap: wrap;
-    }
-
-    .detail-block {
-      text-align: center;
-    }
-
-    .detail-block h3 {
-      font-family: 'Lato', sans-serif;
-      font-weight: 400;
-      font-size: 0.75rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--text-dark-soft);
-      margin-bottom: 0.8rem;
-    }
-
-    .detail-block p {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 1.3rem;
-      line-height: 1.8;
-      color: var(--text-dark-mid);
-    }
-
-    .detail-block em {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 1.2rem;
-      color: var(--text-dark-soft);
-    }
-
-    /* Gold separator between sections */
-    .gold-sep {
-      display: block;
-      width: 40px;
-      height: 1px;
-      background: var(--gold);
-      margin: 0 auto;
-      border: none;
-      opacity: 0.5;
-    }
-
-    .story-section .gold-sep {
-      margin-bottom: 3rem;
-    }
-
-    /* ═══════════════════════════════════
-       LIVESTREAM
-       ═══════════════════════════════════ */
-    .livestream {
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(61, 122, 138, 0.15) 0%, transparent 50%),
-        var(--deep);
-      color: var(--text-light);
-      padding: 6rem 2rem;
-      text-align: center;
-    }
-
-    .livestream-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .livestream .section-tag {
-      color: var(--gold);
-    }
-
-    .livestream h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(2.5rem, 5vw, 3.8rem);
-      font-style: italic;
-      color: var(--text-light);
-      margin-bottom: 1.2rem;
-    }
-
-    .livestream p {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 1.3rem;
+      font-size: 1.15rem;
       line-height: 1.9;
-      color: var(--text-light-soft);
-      max-width: 560px;
-      margin: 0 auto;
+      color: var(--text-secondary);
     }
 
     .stream-container {
-      position: relative;
       width: 100%;
-      margin: 3rem auto 0;
       aspect-ratio: 16 / 9;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 4px;
+      background: rgba(107,179,200,0.04);
+      border: 1px solid rgba(107,179,200,0.15);
+      border-radius: 3px;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
 
-    .stream-placeholder {
-      text-align: center;
-      padding: 2rem;
-    }
+    .stream-placeholder { text-align: center; padding: 2rem; }
 
     .stream-placeholder .play-ring {
-      width: 80px;
-      height: 80px;
-      border: 1.5px solid var(--gold);
+      width: 64px;
+      height: 64px;
+      border: 1.5px solid var(--blue);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1.5rem;
-      color: var(--gold);
-      font-size: 1.5rem;
-      opacity: 0.6;
+      margin: 0 auto 1.2rem;
+      color: var(--blue);
+      font-size: 1.2rem;
+      opacity: 0.4;
     }
 
     .stream-placeholder p {
-      font-size: 1.1rem;
-      color: var(--text-light-soft);
-      max-width: 320px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1rem;
+      color: var(--text-tertiary);
     }
 
     .stream-container iframe {
@@ -418,43 +629,118 @@
       border: none;
     }
 
-    /* ═══════════════════════════════════
-       FOOTER
-       ═══════════════════════════════════ */
-    footer {
-      background: var(--sand);
-      text-align: center;
-      padding: 3.5rem 2rem;
+    /* ══════════════════════════════════════
+       STORY + DETAILS — side by side
+       ══════════════════════════════════════ */
+    .details-section {
+      position: relative;
+      padding: 5rem 0;
+      background: var(--paper);
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .story-col h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .story-col p {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.2rem;
+      line-height: 2;
+      color: var(--text-secondary);
+    }
+
+    .cards-col {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 0.6rem;
+      gap: 2.5rem;
+      padding-top: 0.5rem;
+    }
+
+    .detail-card {
+      padding: 2rem 0;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .detail-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 0.68rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.8rem;
+    }
+
+    .detail-card p {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .detail-card em {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--text-tertiary);
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════ */
+    footer {
+      position: relative;
+      text-align: center;
+      padding: 4rem 2rem 10rem;
+      background: var(--paper);
+      overflow: hidden;
+    }
+
+    footer .foot-content {
+      position: relative;
+      z-index: 1;
     }
 
     footer .foot-names {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 1.6rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 1.5rem;
       letter-spacing: 0.35em;
-      color: var(--text-dark-mid);
+      color: var(--text-secondary);
     }
 
     footer .foot-date {
-      font-family: 'Lato', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-      font-size: 0.85rem;
-      letter-spacing: 0.25em;
-      color: var(--text-dark-soft);
-      text-transform: lowercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--text-tertiary);
+      margin-top: 0.5rem;
     }
 
-    /* ═══════════════════════════════════
-       ANIMATIONS
-       ═══════════════════════════════════ */
+    /* ══════════════════════════════════════
+       SCROLL REVEAL
+       ══════════════════════════════════════ */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(20px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
     }
 
     .reveal.visible {
@@ -462,176 +748,286 @@
       transform: translateY(0);
     }
 
-    .reveal-stagger > .reveal:nth-child(2) { transition-delay: 0.12s; }
-    .reveal-stagger > .reveal:nth-child(3) { transition-delay: 0.24s; }
-    .reveal-stagger > .reveal:nth-child(4) { transition-delay: 0.36s; }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+    .reveal-d5 { transition-delay: 0.5s; }
+    .reveal-d6 { transition-delay: 0.6s; }
 
-    /* ═══════════════════════════════════
+    /* ══════════════════════════════════════
        RESPONSIVE
-       ═══════════════════════════════════ */
-    @media (max-width: 768px) {
-      .monogram {
-        height: 120px;
-        width: 140px;
+       ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .wrap { padding: 0 2rem; }
+
+      .duo-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        max-width: 480px;
+        margin: 0 auto;
       }
 
-      .monogram span {
-        font-size: 7rem;
-      }
-
-      .monogram .letter-z {
-        left: 50px;
-      }
-
-      .story-section {
-        padding: 5rem 2rem;
-      }
-
-      .details-row {
+      .details-grid {
+        grid-template-columns: 1fr;
         gap: 3rem;
+        text-align: center;
       }
+
+      .story-col { text-align: center; }
+
+      .livestream-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .livestream-info { text-align: center; }
+    }
+
+    @media (max-width: 768px) {
+      .monogram { width: 130px; height: 118px; }
+      .monogram span { font-size: 6.8rem; }
+      .monogram .letter-z { left: 45px; }
+
+      .hero { padding: 3rem 2rem 7rem; }
+
+      .hero-wc { height: 420px; }
+      .hero-wc .wc { opacity: 0.7; }
+
+      .duo-section { padding: 4rem 0; }
+      .duo-section::before { height: 140px; }
+      .duo-section::after { top: 140px; }
+      .details-section { padding: 4rem 0; }
+      .livestream-section { padding: 4rem 0; }
+      .footer-wc { bottom: -80px; height: 400px; }
+      .footer-wc .wc { opacity: 0.6; }
     }
 
     @media (max-width: 520px) {
-      .hero-names {
-        flex-direction: column;
-        gap: 0.15em;
-      }
+      .hero { padding: 2.5rem 1.5rem 5rem; }
 
-      .monogram {
-        height: 90px;
-        width: 110px;
-      }
+      .monogram { width: 105px; height: 96px; }
+      .monogram span { font-size: 5.5rem; }
+      .monogram .letter-z { left: 36px; }
 
-      .monogram span {
-        font-size: 5.5rem;
-      }
+      .hero-names { gap: 1.2rem; }
+      .hero-names .first { font-size: 0.78rem; letter-spacing: 0.35em; }
+      .hero-names .last { font-size: 0.7rem; }
 
-      .monogram .letter-z {
-        left: 40px;
-      }
+      .hero-wc { height: 320px; bottom: -50px; }
+      .hero-wc .wc { opacity: 0.55; }
+      .hero-wc .wc:nth-child(1) { width: 50%; height: 140px; bottom: 60px; }
+      .hero-wc .wc:nth-child(2) { width: 50%; height: 120px; bottom: 30px; }
+      .hero-wc .wc:nth-child(3) { width: 55%; height: 150px; bottom: 35px; }
+      .hero-wc .wc:nth-child(4) { width: 50%; height: 130px; bottom: 20px; }
+      .hero-wc .wc:nth-child(5) { width: 50%; height: 140px; bottom: 40px; }
+      .hero-wc .wc:nth-child(6) { width: 30%; height: 80px; bottom: 110px; }
+      .hero-wc .wc:nth-child(7) { width: 45%; height: 100px; bottom: 80px; }
+      .hero-wc .wc:nth-child(8) { width: 28%; height: 70px; bottom: 25px; }
 
-      .countdown-item {
-        min-width: 70px;
-        padding: 0 0.8rem;
-      }
+      .duo-section { padding: 6rem 0 3rem; }
+      .duo-section::before { height: 120px; }
+      .duo-section::after { top: 120px; }
 
-      .story-section {
-        padding: 4rem 1.5rem;
-      }
+      .wrap { padding: 0 1.5rem; }
 
-      .details-row {
-        flex-direction: column;
-        gap: 2.5rem;
-      }
+      .countdown-item .number { font-size: 2.2rem; }
+
+      .photo-frame { padding: 0.6rem 0.6rem 2rem; }
+
+      footer { padding: 4rem 2rem 8rem; }
+      .footer-wc { bottom: -40px; height: 300px; }
+      .footer-wc .wc { opacity: 0.45; }
+      .footer-wc .wc:nth-child(1) { width: 50%; height: 140px; bottom: 10px; left: -5%; }
+      .footer-wc .wc:nth-child(2) { width: 45%; height: 130px; bottom: 5px; left: 20%; }
+      .footer-wc .wc:nth-child(3) { width: 50%; height: 120px; bottom: 0; left: 35%; }
+      .footer-wc .wc:nth-child(4) { width: 45%; height: 140px; bottom: 10px; right: -5%; left: auto; }
+      .footer-wc .wc:nth-child(5) { width: 30%; height: 80px; bottom: 70px; }
+      .footer-wc .wc:nth-child(6) { width: 28%; height: 70px; bottom: 60px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- SVG filter for organic watercolor distortion -->
+  <svg style="position:absolute;width:0;height:0" aria-hidden="true">
+    <filter id="wc-texture" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
   <!-- ═══ HERO ═══ -->
-  <div class="hero">
-    <div class="monogram">
+  <section class="hero">
+    <div class="monogram reveal">
       <span class="letter-a">A</span>
       <span class="letter-z">Z</span>
     </div>
-    <div class="hero-line"></div>
-    <div class="hero-names">
-      <span>Abigayle</span>
+
+    <div class="hero-line reveal reveal-d1"></div>
+
+    <div class="hero-names reveal reveal-d2">
+      <div class="name-block">
+        <div class="first">Abigayle</div>
+        <div class="last">Stump</div>
+      </div>
       <span class="plus">+</span>
-      <span>Zachary</span>
+      <div class="name-block">
+        <div class="first">Zachary</div>
+        <div class="last">Hunter</div>
+      </div>
     </div>
-    <div class="hero-sub">are getting married</div>
-    <div class="hero-date">7 <span class="dot">.</span> 11 <span class="dot">.</span> 26</div>
-    <div class="hero-location">
-      <span>Miramar Beach</span>
-      <span class="sep">&middot;</span>
-      <span>Florida</span>
+    <div class="hero-sub reveal reveal-d3">invite you to their wedding celebration</div>
+
+    <div class="hero-date reveal reveal-d4">07 <span class="dot">.</span> 11 <span class="dot">.</span> 26</div>
+    <div class="hero-time reveal reveal-d5">in the afternoon</div>
+
+    <div class="hero-venue reveal reveal-d6">
+      <div class="venue-name">Miramar Beach</div>
+      <div class="venue-loc">Florida</div>
     </div>
-    <a href="#countdown" class="scroll-cta">
-      <span>Watch with us</span>
+
+    <a href="#duo" class="scroll-cta">
+      <span>Celebrate with us</span>
       <span class="arrow">&#9661;</span>
     </a>
-  </div>
 
-  <!-- ═══ COUNTDOWN ═══ -->
-  <div class="countdown-section" id="countdown">
-    <div class="section-tag">Until we say I do</div>
-    <div class="countdown-row reveal-stagger">
-      <div class="countdown-item reveal">
-        <span class="number" id="cd-days">--</span>
-        <span class="label">Days</span>
-      </div>
-      <div class="countdown-item reveal">
-        <span class="number" id="cd-hours">--</span>
-        <span class="label">Hours</span>
-      </div>
-      <div class="countdown-item reveal">
-        <span class="number" id="cd-minutes">--</span>
-        <span class="label">Minutes</span>
-      </div>
-      <div class="countdown-item reveal">
-        <span class="number" id="cd-seconds">--</span>
-        <span class="label">Seconds</span>
-      </div>
+    <!-- Watercolor — like the invitation: dense bottom, soft fade up -->
+    <div class="hero-wc" aria-hidden="true">
+      <div class="wc"></div>
+      <div class="wc"></div>
+      <div class="wc"></div>
+      <div class="wc"></div>
+      <div class="wc"></div>
+      <div class="wc"></div>
+      <div class="wc"></div>
+      <div class="wc"></div>
     </div>
-  </div>
+  </section>
 
-  <!-- ═══ STORY + DETAILS ═══ -->
-  <div class="story-section">
-    <hr class="gold-sep">
-    <div class="section-tag">Our Story</div>
-    <h2>Two hearts, one journey</h2>
-    <p>
-      We're thrilled to celebrate our love surrounded by sand, sea,
-      and a stunning sunset on Miramar Beach. Thank you for being
-      part of our day — we're so grateful to share this moment
-      with you.
-    </p>
-    <div class="details-row">
-      <div class="detail-block reveal">
-        <h3>Ceremony</h3>
-        <p>Saturday, July 11th, 2026<br>Miramar Beach, Florida</p>
-        <em>in the afternoon</em>
-      </div>
-      <div class="detail-block reveal">
-        <h3>How to Watch</h3>
-        <p>The ceremony will be livestreamed<br>right here on this page</p>
-        <em>stream goes live day-of</em>
-      </div>
-    </div>
-  </div>
+  <!-- ═══ PHOTO + COUNTDOWN ═══ -->
+  <section class="duo-section" id="duo">
+    <div class="wrap">
+      <div class="duo-grid">
+        <div class="photo-col reveal">
+          <div class="photo-frame">
+            <div class="photo-placeholder">
+              <!--
+                Replace with your photo:
+                <img src="your-photo.jpg" alt="Abigayle & Zachary" style="width:100%;height:100%;object-fit:cover;">
+              -->
+              <div class="ph-icon">&#9825;</div>
+              <div class="ph-text">Couple photo here</div>
+            </div>
+            <div class="frame-names">Abigayle &nbsp;+&nbsp; Zachary</div>
+            <div class="frame-detail">07.11.26 &nbsp;|&nbsp; miramar beach, florida</div>
+          </div>
+        </div>
 
-  <!-- ═══ LIVESTREAM ═══ -->
-  <div class="livestream" id="watch">
-    <div class="livestream-inner">
-      <div class="section-tag">Join Virtually</div>
-      <h2>Watch the Ceremony</h2>
-      <p>
-        We'll be streaming the ceremony live so you can
-        celebrate with us from wherever you are.
-      </p>
-      <div class="stream-container reveal">
-        <!--
-          Replace the placeholder below with your embed iframe:
-          <iframe src="https://www.youtube.com/embed/LIVE_STREAM_ID" allowfullscreen></iframe>
-        -->
-        <div class="stream-placeholder">
-          <div class="play-ring">&#9655;</div>
-          <p>The livestream will go live on July 11, 2026</p>
+        <div class="countdown-col reveal reveal-d2">
+          <hr class="thin-rule">
+          <div class="section-label">Until we say I do</div>
+          <div class="countdown-row">
+            <div class="countdown-item">
+              <span class="number" id="cd-days">--</span>
+              <span class="label">Days</span>
+            </div>
+            <div class="countdown-item">
+              <span class="number" id="cd-hours">--</span>
+              <span class="label">Hours</span>
+            </div>
+            <div class="countdown-item">
+              <span class="number" id="cd-minutes">--</span>
+              <span class="label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+              <span class="number" id="cd-seconds">--</span>
+              <span class="label">Seconds</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- ═══ LIVESTREAM (moved up) ═══ -->
+  <section class="livestream-section" id="watch">
+    <div class="wrap">
+      <div class="livestream-grid">
+        <div class="livestream-info reveal">
+          <div class="section-label">Join Virtually</div>
+          <h2>Watch the Ceremony</h2>
+          <p>
+            We'll be streaming the ceremony live so you can
+            celebrate with us from wherever you are.
+          </p>
+        </div>
+
+        <div class="stream-container reveal reveal-d1">
+          <!--
+            Replace the placeholder below with your embed iframe:
+            <iframe src="https://www.youtube.com/embed/LIVE_STREAM_ID" allowfullscreen></iframe>
+          -->
+          <div class="stream-placeholder">
+            <div class="play-ring">&#9655;</div>
+            <p>The livestream will go live on July 11, 2026</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STORY + DETAILS (moved down) ═══ -->
+  <section class="details-section">
+    <div class="wrap">
+      <div class="details-grid">
+        <div class="story-col reveal">
+          <div class="section-label">Our Celebration</div>
+          <h2>Two hearts, one journey</h2>
+          <p>
+            We're thrilled to celebrate our love surrounded by sand, sea,
+            and a stunning sunset on Miramar Beach. Thank you for being
+            part of our day.
+          </p>
+        </div>
+
+        <div class="cards-col">
+          <div class="detail-card reveal">
+            <h3>Ceremony</h3>
+            <p>Saturday, July 11th, 2026<br>Miramar Beach, Florida</p>
+            <em>in the afternoon</em>
+          </div>
+          <div class="detail-card reveal reveal-d1">
+            <h3>How to Watch</h3>
+            <p>The ceremony will be livestreamed<br>right here on this page</p>
+            <em>stream goes live day-of</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══ FOOTER ═══ -->
   <footer>
-    <div class="foot-names">A + Z</div>
-    <div class="foot-date">7.11.26 &middot; miramar beach, florida</div>
+    <!-- Watercolor — dense at bottom of page, fades upward -->
+    <div class="footer-wc" aria-hidden="true">
+      <div class="wc"></div>
+      <div class="wc"></div>
+      <div class="wc"></div>
+      <div class="wc"></div>
+      <div class="wc"></div>
+      <div class="wc"></div>
+    </div>
+
+    <div class="foot-content">
+      <div class="foot-names">A &nbsp;+&nbsp; Z</div>
+      <div class="foot-date">7.11.26 &middot; miramar beach, florida</div>
+    </div>
   </footer>
 
-  <!-- ═══ Scripts ═══ -->
+  <!-- ═══ SCRIPTS ═══ -->
   <script>
+    /* Countdown */
     (function() {
       var wedding = new Date('2026-07-11T17:00:00-05:00');
       function update() {
@@ -653,13 +1049,14 @@
       setInterval(update, 1000);
     })();
 
+    /* Scroll Reveal */
     (function() {
       var els = document.querySelectorAll('.reveal');
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.15 });
       els.forEach(function(el) { observer.observe(el); });
     })();
   </script>

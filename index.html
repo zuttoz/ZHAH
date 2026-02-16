@@ -45,10 +45,10 @@
        Blobs are more saturated with varied blur for texture. */
     .hero-wc {
       position: absolute;
-      bottom: -80px;
+      bottom: clamp(-110px, -8vh, -60px);
       left: -10%;
       width: 120%;
-      height: 550px;
+      height: clamp(340px, 35vh, 550px);
       pointer-events: none;
       z-index: 2;
       filter: url(#wc-texture);
@@ -57,8 +57,8 @@
     /* 1 — left pool, reaches high */
     .hero-wc .wc:nth-child(1) {
       width: 38%;
-      height: 200px;
-      bottom: 90px;
+      height: 36%;
+      bottom: 16%;
       left: -2%;
       background: rgba(95, 188, 208, 0.26);
       border-radius: 40% 65% 50% 35% / 60% 40% 55% 45%;
@@ -68,8 +68,8 @@
     /* 2 — left-center, bridges into the middle */
     .hero-wc .wc:nth-child(2) {
       width: 35%;
-      height: 160px;
-      bottom: 50px;
+      height: 29%;
+      bottom: 9%;
       left: 14%;
       background: rgba(80, 175, 195, 0.26);
       border-radius: 55% 45% 62% 38% / 48% 55% 42% 58%;
@@ -79,8 +79,8 @@
     /* 3 — center wash, wide to fill the middle */
     .hero-wc .wc:nth-child(3) {
       width: 40%;
-      height: 230px;
-      bottom: 55px;
+      height: 42%;
+      bottom: 10%;
       left: 25%;
       background: rgba(110, 195, 215, 0.24);
       border-radius: 45% 55% 40% 60% / 65% 35% 58% 42%;
@@ -90,8 +90,8 @@
     /* 4 — right-center, overlaps center and right */
     .hero-wc .wc:nth-child(4) {
       width: 34%;
-      height: 180px;
-      bottom: 40px;
+      height: 33%;
+      bottom: 7%;
       right: 10%;
       background: rgba(85, 180, 200, 0.25);
       border-radius: 58% 42% 35% 65% / 45% 60% 40% 55%;
@@ -101,8 +101,8 @@
     /* 5 — far right wash, reaches moderately high */
     .hero-wc .wc:nth-child(5) {
       width: 34%;
-      height: 210px;
-      bottom: 65px;
+      height: 38%;
+      bottom: 12%;
       right: -3%;
       background: rgba(100, 190, 210, 0.24);
       border-radius: 35% 60% 50% 45% / 55% 42% 60% 38%;
@@ -112,8 +112,8 @@
     /* 6 — upper accent, left */
     .hero-wc .wc:nth-child(6) {
       width: 20%;
-      height: 110px;
-      bottom: 170px;
+      height: 20%;
+      bottom: 31%;
       left: 6%;
       background: rgba(90, 185, 205, 0.20);
       border-radius: 65% 35% 50% 50% / 45% 55% 50% 50%;
@@ -123,8 +123,8 @@
     /* 7 — upper bridge, center-right */
     .hero-wc .wc:nth-child(7) {
       width: 38%;
-      height: 150px;
-      bottom: 115px;
+      height: 27%;
+      bottom: 21%;
       right: 6%;
       background: rgba(120, 200, 218, 0.18);
       border-radius: 42% 58% 45% 55% / 60% 40% 55% 45%;
@@ -134,8 +134,8 @@
     /* 8 — lower right accent */
     .hero-wc .wc:nth-child(8) {
       width: 20%;
-      height: 100px;
-      bottom: 40px;
+      height: 18%;
+      bottom: 7%;
       right: 3%;
       background: rgba(80, 178, 198, 0.22);
       border-radius: 50% 50% 40% 60% / 55% 45% 55% 45%;
@@ -145,10 +145,10 @@
     /* Footer watercolor — same organic treatment */
     .footer-wc {
       position: absolute;
-      bottom: -150px;
+      bottom: clamp(-150px, -10vh, -100px);
       left: -10%;
       width: 120%;
-      height: 450px;
+      height: clamp(320px, 31vh, 450px);
       pointer-events: none;
       z-index: 0;
       filter: url(#wc-texture);
@@ -156,8 +156,8 @@
 
     .footer-wc .wc:nth-child(1) {
       width: 40%;
-      height: 210px;
-      bottom: 35px;
+      height: 47%;
+      bottom: 8%;
       left: -2%;
       background: rgba(95, 188, 208, 0.25);
       border-radius: 42% 62% 55% 40% / 58% 38% 55% 48%;
@@ -166,8 +166,8 @@
 
     .footer-wc .wc:nth-child(2) {
       width: 38%;
-      height: 220px;
-      bottom: 30px;
+      height: 49%;
+      bottom: 7%;
       left: 15%;
       background: rgba(82, 180, 200, 0.26);
       border-radius: 55% 45% 38% 62% / 48% 55% 42% 58%;
@@ -176,8 +176,8 @@
 
     .footer-wc .wc:nth-child(3) {
       width: 38%;
-      height: 190px;
-      bottom: 25px;
+      height: 42%;
+      bottom: 6%;
       left: 30%;
       background: rgba(105, 192, 212, 0.24);
       border-radius: 60% 40% 52% 48% / 42% 60% 45% 55%;
@@ -186,8 +186,8 @@
 
     .footer-wc .wc:nth-child(4) {
       width: 38%;
-      height: 215px;
-      bottom: 35px;
+      height: 48%;
+      bottom: 8%;
       right: -2%;
       background: rgba(90, 185, 205, 0.25);
       border-radius: 38% 62% 45% 55% / 55% 40% 60% 42%;
@@ -196,8 +196,8 @@
 
     .footer-wc .wc:nth-child(5) {
       width: 24%;
-      height: 130px;
-      bottom: 115px;
+      height: 29%;
+      bottom: 26%;
       left: 8%;
       background: rgba(105, 192, 212, 0.17);
       border-radius: 50% 50% 60% 40% / 45% 55% 42% 58%;
@@ -206,8 +206,8 @@
 
     .footer-wc .wc:nth-child(6) {
       width: 22%;
-      height: 110px;
-      bottom: 105px;
+      height: 24%;
+      bottom: 23%;
       right: 10%;
       background: rgba(95, 188, 208, 0.17);
       border-radius: 62% 38% 48% 52% / 50% 45% 55% 50%;
@@ -226,7 +226,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 4rem 2rem 10rem;
+      padding: 4rem 2rem 12rem;
       background-color: var(--paper);
       background-image:
         radial-gradient(ellipse at 20% 25%, rgba(245,240,230,0.5) 0%, transparent 50%),
@@ -789,7 +789,7 @@
       .monogram span { font-size: 6.8rem; }
       .monogram .letter-z { left: 45px; }
 
-      .hero { padding: 3rem 2rem 7rem; }
+      .hero { padding: 3rem 2rem 9rem; }
 
       .hero-wc { height: 420px; }
       .hero-wc .wc { opacity: 0.7; }
@@ -804,7 +804,7 @@
     }
 
     @media (max-width: 520px) {
-      .hero { padding: 2.5rem 1.5rem 5rem; }
+      .hero { padding: 2.5rem 1.5rem 7rem; }
 
       .monogram { width: 105px; height: 96px; }
       .monogram span { font-size: 5.5rem; }

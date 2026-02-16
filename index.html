@@ -313,7 +313,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-weight: 300;
-      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
       color: var(--text-secondary);
       margin-bottom: 2.8rem;
     }
@@ -336,7 +336,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-weight: 300;
-      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
       color: var(--text-secondary);
       margin-top: 1.6rem;
     }
@@ -346,7 +346,7 @@
     .hero-venue .venue-name {
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       letter-spacing: 0.38em;
       text-transform: uppercase;
       color: var(--text-secondary);
@@ -356,7 +356,7 @@
     .hero-venue .venue-loc {
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       letter-spacing: 0.25em;
       color: var(--text-tertiary);
     }
@@ -392,10 +392,10 @@
     .section-label {
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
-      font-size: 0.68rem;
+      font-size: 0.75rem;
       letter-spacing: 0.5em;
       text-transform: uppercase;
-      color: var(--text-tertiary);
+      color: var(--blue);
       margin-bottom: 1.8rem;
     }
 
@@ -407,6 +407,15 @@
       margin: 0 auto 2rem;
       border: none;
       opacity: 0.5;
+    }
+
+    .section-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      margin: 0 auto;
+      opacity: 0.45;
     }
 
     .wrap {
@@ -451,11 +460,15 @@
       pointer-events: none;
     }
 
-    .duo-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
+    .photo-standalone {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 4rem;
+    }
+
+    .photo-standalone .photo-frame {
+      max-width: 420px;
+      width: 100%;
     }
 
     .photo-frame {
@@ -506,20 +519,22 @@
     .photo-frame .frame-detail {
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       letter-spacing: 0.12em;
       color: var(--text-tertiary);
       margin-top: 0.4rem;
       text-align: center;
     }
 
-    /* Countdown column */
-    .countdown-col { text-align: center; }
+    /* Countdown */
+    .countdown-standalone { text-align: center; }
 
     .countdown-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     .countdown-item {
@@ -543,7 +558,7 @@
 
     .countdown-item .label {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.58rem;
+      font-size: 0.65rem;
       font-weight: 400;
       letter-spacing: 0.3em;
       text-transform: uppercase;
@@ -560,16 +575,22 @@
       background: var(--paper);
     }
 
-    .livestream-grid {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 4rem;
-      align-items: center;
+    .livestream-centered {
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .livestream-info { text-align: left; }
+    .livestream-info {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
 
-    .livestream-info .section-label { color: var(--blue); }
+    .livestream-info p {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+
 
     .livestream-info h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -584,7 +605,7 @@
     .livestream-info p {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
-      font-size: 1.15rem;
+      font-size: 1.3rem;
       line-height: 1.9;
       color: var(--text-secondary);
     }
@@ -619,7 +640,7 @@
     .stream-placeholder p {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--text-tertiary);
     }
 
@@ -645,11 +666,14 @@
       align-items: start;
     }
 
+    .details-grid--flip .story-col { order: 2; }
+    .details-grid--flip .cards-col { order: 1; }
+
     .story-col h2 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
       font-style: italic;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2.2rem, 4vw, 3rem);
       color: var(--text-primary);
       margin-bottom: 1.5rem;
       line-height: 1.3;
@@ -658,7 +682,7 @@
     .story-col p {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
-      font-size: 1.2rem;
+      font-size: 1.35rem;
       line-height: 2;
       color: var(--text-secondary);
     }
@@ -678,7 +702,7 @@
     .detail-card h3 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
-      font-size: 0.68rem;
+      font-size: 0.75rem;
       letter-spacing: 0.45em;
       text-transform: uppercase;
       color: var(--text-tertiary);
@@ -688,7 +712,7 @@
     .detail-card p {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
-      font-size: 1.15rem;
+      font-size: 1.28rem;
       line-height: 1.8;
       color: var(--text-secondary);
     }
@@ -697,7 +721,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
       font-style: italic;
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       color: var(--text-tertiary);
     }
 
@@ -728,7 +752,7 @@
     footer .foot-date {
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       letter-spacing: 0.2em;
       color: var(--text-tertiary);
       margin-top: 0.5rem;
@@ -761,27 +785,16 @@
     @media (max-width: 900px) {
       .wrap { padding: 0 2rem; }
 
-      .duo-grid {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
-        max-width: 480px;
-        margin: 0 auto;
-      }
-
       .details-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
         text-align: center;
       }
 
+      .details-grid--flip .story-col { order: 0; }
+      .details-grid--flip .cards-col { order: 0; }
+
       .story-col { text-align: center; }
-
-      .livestream-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
-      .livestream-info { text-align: center; }
     }
 
     @media (max-width: 768px) {
@@ -797,6 +810,8 @@
       .duo-section { padding: 4rem 0; }
       .duo-section::before { height: 140px; }
       .duo-section::after { top: 140px; }
+      .photo-standalone .photo-frame { max-width: 360px; }
+      .photo-standalone { margin-bottom: 3rem; }
       .details-section { padding: 4rem 0; }
       .livestream-section { padding: 4rem 0; }
       .footer-wc { bottom: -80px; height: 400px; }
@@ -834,6 +849,8 @@
       .countdown-item .number { font-size: 2.2rem; }
 
       .photo-frame { padding: 0.6rem 0.6rem 2rem; }
+      .photo-standalone .photo-frame { max-width: 300px; }
+      .photo-standalone { margin-bottom: 2.5rem; }
 
       footer { padding: 4rem 2rem 8rem; }
       .footer-wc { bottom: -40px; height: 300px; }
@@ -908,52 +925,52 @@
   <!-- ═══ PHOTO + COUNTDOWN ═══ -->
   <section class="duo-section" id="duo">
     <div class="wrap">
-      <div class="duo-grid">
-        <div class="photo-col reveal">
-          <div class="photo-frame">
-            <div class="photo-placeholder">
-              <!--
-                Replace with your photo:
-                <img src="your-photo.jpg" alt="Abigayle & Zachary" style="width:100%;height:100%;object-fit:cover;">
-              -->
-              <div class="ph-icon">&#9825;</div>
-              <div class="ph-text">Couple photo here</div>
-            </div>
-            <div class="frame-names">Abigayle &nbsp;+&nbsp; Zachary</div>
-            <div class="frame-detail">07.11.26 &nbsp;|&nbsp; miramar beach, florida</div>
-          </div>
-        </div>
 
-        <div class="countdown-col reveal reveal-d2">
-          <hr class="thin-rule">
-          <div class="section-label">Until we say I do</div>
-          <div class="countdown-row">
-            <div class="countdown-item">
-              <span class="number" id="cd-days">--</span>
-              <span class="label">Days</span>
-            </div>
-            <div class="countdown-item">
-              <span class="number" id="cd-hours">--</span>
-              <span class="label">Hours</span>
-            </div>
-            <div class="countdown-item">
-              <span class="number" id="cd-minutes">--</span>
-              <span class="label">Minutes</span>
-            </div>
-            <div class="countdown-item">
-              <span class="number" id="cd-seconds">--</span>
-              <span class="label">Seconds</span>
-            </div>
+      <div class="photo-standalone reveal">
+        <div class="photo-frame">
+          <div class="photo-placeholder">
+            <!--
+              Replace with your photo:
+              <img src="your-photo.jpg" alt="Abigayle & Zachary" style="width:100%;height:100%;object-fit:cover;">
+            -->
+            <div class="ph-icon">&#9825;</div>
+            <div class="ph-text">Couple photo here</div>
+          </div>
+          <div class="frame-names">Abigayle &nbsp;+&nbsp; Zachary</div>
+          <div class="frame-detail">07.11.26 &nbsp;|&nbsp; miramar beach, florida</div>
+        </div>
+      </div>
+
+      <div class="countdown-standalone reveal reveal-d2">
+        <hr class="thin-rule">
+        <div class="section-label">Until we say I do</div>
+        <div class="countdown-row">
+          <div class="countdown-item">
+            <span class="number" id="cd-days">--</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="number" id="cd-hours">--</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="number" id="cd-minutes">--</span>
+            <span class="label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="number" id="cd-seconds">--</span>
+            <span class="label">Seconds</span>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- ═══ LIVESTREAM (moved up) ═══ -->
+  <!-- ═══ LIVESTREAM ═══ -->
   <section class="livestream-section" id="watch">
     <div class="wrap">
-      <div class="livestream-grid">
+      <div class="livestream-centered">
         <div class="livestream-info reveal">
           <div class="section-label">Join Virtually</div>
           <h2>Watch the Ceremony</h2>
@@ -1007,10 +1024,12 @@
     </div>
   </section>
 
+  <div class="section-dot reveal"></div>
+
   <!-- ═══ CELEBRATION AT HOME ═══ -->
   <section class="details-section">
     <div class="wrap">
-      <div class="details-grid">
+      <div class="details-grid details-grid--flip">
         <div class="story-col reveal">
           <div class="section-label">Celebrate With Us</div>
           <h2>The party back home</h2>

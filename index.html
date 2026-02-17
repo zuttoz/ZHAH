@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="theme-color" content="#faf9f6">
   <title>Abigayle + Zachary — 7.11.26</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text x='2' y='52' font-family='serif' font-weight='600' font-size='52' fill='%236bb3c8'>A</text><text x='26' y='52' font-family='serif' font-weight='600' font-size='52' fill='%236bb3c8' opacity='0.7'>Z</text></svg>">
@@ -23,7 +25,7 @@
       --text-light: #b8b8b8;
     }
 
-    html { scroll-behavior: smooth; overflow-x: hidden; background: #faf9f6; overscroll-behavior-y: none; }
+    html { scroll-behavior: smooth; overflow-x: hidden; background: #faf9f6; overscroll-behavior-y: none; -webkit-overflow-scrolling: touch; }
 
     body {
       font-family: 'Montserrat', sans-serif;
@@ -148,10 +150,10 @@
     /* Footer watercolor — same organic treatment */
     .footer-wc {
       position: absolute;
-      bottom: clamp(-150px, -10vh, -100px);
+      bottom: 0;
       left: -10%;
       width: 120%;
-      height: clamp(320px, 31vh, 450px);
+      height: clamp(420px, 40vh, 580px);
       pointer-events: none;
       z-index: 0;
       filter: url(#wc-texture);
@@ -230,6 +232,7 @@
       justify-content: center;
       text-align: center;
       padding: 4rem 2rem 12rem;
+      padding-top: calc(4rem + env(safe-area-inset-top, 0px));
       background-color: var(--paper);
       background-image:
         radial-gradient(ellipse at 20% 25%, rgba(245,240,230,0.5) 0%, transparent 50%),
@@ -734,7 +737,7 @@
     footer {
       position: relative;
       text-align: center;
-      padding: 4rem 2rem 10rem;
+      padding: 4rem 2rem calc(10rem + env(safe-area-inset-bottom, 0px));
       background: var(--paper);
       overflow: hidden;
     }
@@ -805,7 +808,7 @@
       .monogram span { font-size: 6.8rem; }
       .monogram .letter-z { left: 45px; }
 
-      .hero { padding: 3rem 2rem 14rem; }
+      .hero { padding: 3rem 2rem 14rem; padding-top: calc(3rem + env(safe-area-inset-top, 0px)); }
 
       /* Disable SVG turbulence on mobile — it's software-rendered
          and causes blank-outs during scroll */
@@ -824,14 +827,14 @@
       .photo-standalone { margin-bottom: 3rem; }
       .details-section { padding: 4rem 0; }
       .livestream-section { padding: 4rem 0; }
-      .footer-wc { bottom: -80px; height: 400px; }
+      .footer-wc { bottom: 0; height: 480px; }
       .footer-wc .wc { opacity: 0.6; }
 
       .wrap { padding: 0 2.5rem; }
     }
 
     @media (max-width: 520px) {
-      .hero { padding: 2.5rem 2rem 12rem; }
+      .hero { padding: 2.5rem 2rem 12rem; padding-top: calc(2.5rem + env(safe-area-inset-top, 0px)); }
 
       .monogram { width: 105px; height: 96px; }
       .monogram span { font-size: 5.5rem; }
@@ -866,8 +869,8 @@
       .photo-standalone .photo-frame { max-width: 300px; }
       .photo-standalone { margin-bottom: 2.5rem; }
 
-      footer { padding: 4rem 2rem 8rem; }
-      .footer-wc { bottom: -40px; height: 300px; }
+      footer { padding: 4rem 2rem calc(8rem + env(safe-area-inset-bottom, 0px)); }
+      .footer-wc { bottom: 0; height: 360px; }
       .footer-wc .wc { opacity: 0.45; }
       .footer-wc .wc:nth-child(1) { width: 50%; height: 140px; bottom: 10px; left: -5%; }
       .footer-wc .wc:nth-child(2) { width: 45%; height: 130px; bottom: 5px; left: 20%; }

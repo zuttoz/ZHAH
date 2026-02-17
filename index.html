@@ -734,7 +734,7 @@
     footer {
       position: relative;
       text-align: center;
-      padding: 4rem 2rem 10rem;
+      padding: 4rem 2rem calc(10rem + env(safe-area-inset-bottom, 0px));
       background: var(--paper);
       overflow: hidden;
     }
@@ -866,7 +866,7 @@
       .photo-standalone .photo-frame { max-width: 300px; }
       .photo-standalone { margin-bottom: 2.5rem; }
 
-      footer { padding: 4rem 2rem 8rem; }
+      footer { padding: 4rem 2rem calc(8rem + env(safe-area-inset-bottom, 0px)); }
       .footer-wc { bottom: -40px; height: 300px; }
       .footer-wc .wc { opacity: 0.45; }
       .footer-wc .wc:nth-child(1) { width: 50%; height: 140px; bottom: 10px; left: -5%; }
